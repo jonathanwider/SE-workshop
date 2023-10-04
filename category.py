@@ -17,3 +17,9 @@ class Category(object):
         :return:
         """
         self.questions.append(question)
+
+    def add_questions(self, questions: [Question]):
+        self.questions.extend(questions)
+
+    def __eq__(self, other):
+        return isinstance(other, self.__class__) and getattr(other, 'title') == self.title and getattr(other, 'questions') == self.questions
