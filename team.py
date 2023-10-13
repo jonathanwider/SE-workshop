@@ -1,4 +1,6 @@
 from question import Question
+
+
 class Team(object):
     def __init__(self, name: str):
         """

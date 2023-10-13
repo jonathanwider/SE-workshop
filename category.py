@@ -1,4 +1,6 @@
 from question import Question
+
+
 class Category(object):
     def __init__(self, title: str, questions: [Question] = None):
         """
@@ -6,7 +8,7 @@ class Category(object):
         :param title: The category's title (e.g. sports)
         :param questions: The questions of the category, optional for init, can be added later with :func:`add_question <category.Category.add_question>`
         """
-        if questions == None:
+        if questions is None:
             questions = []
         self.title = title
         self.questions = questions
@@ -24,4 +26,8 @@ class Category(object):
         self.questions.extend(questions)
 
     def __eq__(self, other):
-        return isinstance(other, self.__class__) and getattr(other, 'title') == self.title and getattr(other, 'questions') == self.questions
+        return (
+            isinstance(other, self.__class__)
+            and getattr(other, "title") == self.title
+            and getattr(other, "questions") == self.questions
+        )

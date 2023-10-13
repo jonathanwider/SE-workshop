@@ -4,6 +4,14 @@ from category import Category
 
 
 def import_csv(filename: str) -> [Category]:
+    """Imports questions and categories from csv files (format: [question,answer,category], without spaces)
+
+    Args:
+        filename (str): Path to csv file
+
+    Returns:
+        [Category]: List of imported categories with questions
+    """
     categories_dict = {}
     with open(file=filename, newline='') as csvfile:
         csv_reader = csv.reader(csvfile, delimiter=',', quotechar='|')
